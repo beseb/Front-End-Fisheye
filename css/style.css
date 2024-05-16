@@ -29,22 +29,47 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
+    margin-bottom: 100px;
 }
 
-.photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.photographer-card, .photographer-card__link{
+    display:flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    gap: 10px;
 }
-
-.photographer_section article h2 {
+.photographer-card__link{
+    margin-bottom: -2em;
+}
+.photographer-card__name  {
     color: #D3573C;
-    font-size: 36px;
+    font-size: 2rem;
+    font-weight: 400;
 }
-
-.photographer_section article img {
+.photographer-card__img {
     height: 200px;
     width: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.photographer-card__location {
+    color:  #901C1C;
+    font-size: 1.2rem;
+    margin: 0;
+}
+.photographer-card__tagline{
+    color: #000000;
+    font-size: 1rem;
+    margin: 0;
+
+}
+.photographer-card__price{
+    color: #757575;
+    font-size: 1rem;
+    margin: 0;
+
 }
