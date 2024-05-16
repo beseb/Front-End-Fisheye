@@ -7,7 +7,7 @@ export default class Api {
         const response = await fetch(this.url);
         const data = await response.json();
         return data;
-    } catch (error) {   
+    } catch(error) {   
         throw new Error(error);
     }
     }
