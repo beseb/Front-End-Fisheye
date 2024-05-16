@@ -1,37 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title class="photographer-page-title">Fisheye - Photographe</title>
+    <meta name="description" content="Fisheye est un site de photographes indépendants. Venez découvrir leur travail et contactez-les pour vos projets !">
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    <!-- CSS -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="/index.html" role="link" aria-label="retour à la page d'accueil">
+        <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/></a>
     </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
+    
+    <main id="main-photographer">
+        <section class="main__hero"></section>
+        <section class="main__content"></section>
     </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <!-- Modal -->
+    <div  id="contact_modal" aria-hidden="true">
+      <div class="modal__content">
+        <div class="modal__content__container"></div>
+      </div>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox__content">
+        <button class="lightbox__close" aria-label="fermer la lightbox">
+          <img src="assets/icons/close.svg" alt="close icon"/>
+        </button>
+        <div class="lightbox__content__container"></div>
+      </div>
+    <!-- Script -->
+    <script src="./scripts/pages/photographerPage.js" type="module" defer></script>
   </body>
-</html>
