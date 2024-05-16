@@ -31,14 +31,14 @@ export const getPhotographerById = async () => {
 // Display the photographer
 const displayPhotographerPage = async () => {
     // Get the photographer and his medias
-    const { photographer, medias } = await getPhotographerById();
+    const { photographer, photographerMedias } = await getPhotographerById();
     const photographerModel = new Photographer(photographer);
     // Create the photographer hero 
     const photographerHero = new PhotographerHero(photographerModel);
     photographerHero.createPhotographerHero();
     // Create the photographer medias
-    const photographerMedias = new PhotographerMedias(medias);
-    photographerMedias.createPhotographerMedias();
+    const photographerContent = new PhotographerMedias(photographerModel,photographerMedias);
+    photographerContent.createPhotographerMedias();
 
 
 }

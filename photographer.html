@@ -11,6 +11,8 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <!-- CDN Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
   <body>
     <header>
@@ -20,7 +22,33 @@
     
     <main id="main-photographer">
         <section class="main__hero"></section>
-        <section class="main__content"></section>
+        <section class="main__content">
+          <div class="main__content__header">
+            <div class="main__content__header__sort">
+              <h2>Trier par</h2>
+              <div class="filter_section" >
+                  <div class="dropdown">
+                      <button class="btn_drop" type="button" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="filter options" aria-label="Sort by">
+                          <span id="current_filter">Titre</span>
+                          <span class="fa-solid fa-chevron-up" aria-hidden="true"></span>
+                      </button>
+
+                      <ul class="dropdown_content" aria-hidden="true">
+                          <li role="option">
+                              <button type="button" tabindex="-1" aria-label="Sort by title">Titre</button>
+                          </li>
+                          <li role="option">
+                              <button type="button" tabindex="-1" aria-label="Sort by popularity">Popularité</button>
+                          </li>
+                          <li role="option">
+                              <button type="button" tabindex="-1" aria-label="Sort by date">Date</button>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+        </div>
+        </section>
     </main>
     <!-- Modal -->
     <div  id="contact_modal" aria-hidden="true">
