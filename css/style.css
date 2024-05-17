@@ -1,10 +1,9 @@
-@import url("photographer.css");
+@import url('photographer.css');
 
 body {
-    font-family: "DM Sans", sans-serif;
+    font-family: 'DM Sans', sans-serif;
     margin: 0;
 }
-
 
 header {
     display: flex;
@@ -15,7 +14,7 @@ header {
 }
 
 h1 {
-    color: #901C1C;
+    color: #901c1c;
     margin-right: 100px;
 }
 
@@ -32,19 +31,20 @@ h1 {
     margin-bottom: 100px;
 }
 
-.photographer-card, .photographer-card__link{
-    display:flex;
+.photographer-card,
+.photographer-card__link {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     gap: 10px;
 }
-.photographer-card__link{
+.photographer-card__link {
     margin-bottom: -2em;
 }
-.photographer-card__name  {
-    color: #D3573C;
+.photographer-card__name {
+    color: #d3573c;
     font-size: 2rem;
     font-weight: 400;
 }
@@ -57,19 +57,17 @@ h1 {
 }
 
 .photographer-card__location {
-    color:  #901C1C;
+    color: #901c1c;
     font-size: 1.2rem;
     margin: 0;
 }
-.photographer-card__tagline{
+.photographer-card__tagline {
     color: #000000;
     font-size: 1rem;
     margin: 0;
-
 }
-.photographer-card__price{
+.photographer-card__price {
     color: #757575;
     font-size: 1rem;
     margin: 0;
-
 }

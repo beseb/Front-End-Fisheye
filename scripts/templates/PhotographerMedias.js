@@ -1,20 +1,20 @@
-export default class PhotographerMedias{
-    constructor(photographer, medias){
-        this.photographer = photographer;
-        this.medias = medias;
+export default class PhotographerMedias {
+    constructor(photographer, medias) {
+        this.photographer = photographer
+        this.medias = medias
     }
-    createPhotographerMedias(){
-        const content_section = document.querySelector('.main__content');
+    createPhotographerMedias() {
+        const content_section = document.querySelector('.main__content')
         // Create the header of the content section
         content_section.innerHTML += `
            
         <div class="main__content__media">
-        ${this.medias.map(media=>{
-            const mediaContent = media.image 
-            ? `<img class="main__content__media__image" src="/assets/images/photographers/Sample Photos/${this.photographer.name}/${media.image}" alt="${media.title}">` 
-            :  `<video class="main__content__media__video" controls>
+        ${this.medias.map((media) => {
+            const mediaContent = media.image
+                ? `<img class="main__content__media__image" src="/assets/images/photographers/Sample Photos/${this.photographer.name}/${media.image}" alt="${media.title}">`
+                : `<video class="main__content__media__video" controls>
             <source src="/assets/images/photographers/Sample Photos/${this.photographer.name}/${media.video}" type="video/mp4">
-            </video>`;
+            </video>`
             return `
                 <article class="main__content__media__item">
                 <a href="#" class="main__content__media__item__link" data-media="${media.id}" role="link" aria-label="voir en grand">
@@ -36,7 +36,7 @@ export default class PhotographerMedias{
             <span class="fas fa-heart" aria-hidden="true"></span>
         </p>
         <span>${this.photographer.price}€ / jour</span>
-    </aside>
-        </div>`;
-    };
+        </aside>
+        </div>`
+    }
 }
