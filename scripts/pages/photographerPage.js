@@ -4,6 +4,7 @@ import PhotographerHero from '../templates/PhotographerHero.js'
 import PhotographerMedias from '../templates/PhotographerMedias.js'
 import MediasFactory from '../factories/MediasFactory.js'
 import { handleModalAndForm } from '../utils/form.js'
+import { handleLightbox } from '../utils/lightbox.js'
 // TODO : Ajouter les imports pour les likes, lightbox, form et filtres
 
 // Create an instance of the Api class
@@ -53,6 +54,9 @@ const displayPhotographerPage = async () => {
     document
         .querySelector('.modal__header-title')
         .setAttribute('aria-label', `Contact me ${photographer.name}`)
+
+    // Lightbox handling
+    handleLightbox(photographerContent)    
 }
 // Call the displayPhotographerPage function
 displayPhotographerPage()

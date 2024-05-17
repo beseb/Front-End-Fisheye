@@ -17,9 +17,7 @@ export default class PhotographerMedias {
             </video>`
             return `
                 <article class="main__content__media__item">
-                <a href="#" class="main__content__media__item__link" data-media="${media.id}" role="link" aria-label="voir en grand">
-                <figure>${mediaContent}</figure>  
-                </a>
+                <figure data-media="${media.id}" aria-label="voir en grand" alt="${media.title}">${mediaContent}</figure>  
                 <figcaption class="main__content__media__item__caption">
                 <h2 class="main__content__media__item__caption__title">${media.title}</h2>
                 <div class="main__content__media__item__caption__likes">
@@ -36,7 +34,7 @@ export default class PhotographerMedias {
             <span class="fas fa-heart" aria-hidden="true"></span>
         </p>
         <span>${this.photographer.price}€ / jour</span>
-        </aside>
+    </aside>
         </div>`
     }
 }
