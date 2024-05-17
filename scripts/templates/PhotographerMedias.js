@@ -21,9 +21,9 @@ export default class PhotographerMedias {
                 <figcaption class="main__content__media__item__caption">
                 <h2 class="main__content__media__item__caption__title">${media.title}</h2>
                 <div class="main__content__media__item__caption__likes">
-                <span class="main__content__media__item__caption__likes__number">${media.likes}</span>
-                <i class="fas fa-heart" aria-label="likes"></i>
-                </div>                
+                <button class="main__content__media__item__caption__likes-btn" aria-label="likes" data-likes="${media.likes}">${media.likes}</button>
+                <i class="fas fa-heart"></i>
+                </div>
                </figcaption>
                 </article>
             `

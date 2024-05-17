@@ -23,7 +23,7 @@ export function handleLightbox(photographerContent) {
                 (media) => media.id === parseInt(mediaId)
             )
             currentIndex = currentMedia
-            showMedia(currentMedia)
+            showMedia()
             openLightbox()
         })
     })
