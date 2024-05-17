@@ -97,7 +97,7 @@
             </section>
         </main>
         <!-- Modal -->
-        <div id="contact_modal" aria-hidden="true" class="modal hidden">
+        <div id="contact_modal"  class="modal hidden" aria-hidden="true" >
             <div class="modal__content">
                 <div class="modal__content__header">
                     <h2 class="modal__header-title"></h2>
@@ -108,15 +108,16 @@
                         <img src="assets/icons/close.svg" alt="close icon" />
                     </button>
                 </div>
-                <div class="modal__content__form">
+                <div class="modal__content__form" role="dialog" >
                     <!-- No form validation for now as it's a student project -->
-                    <form novalidate>
+                    <form novalidate role="form">
                         <label for="first_name">Prénom</label>
                         <input
                             type="text"
                             id="first_name"
                             name="first_name"
                             required
+                            aria-required="true"
                         />
                         <label for="last_name">Nom</label>
                         <input
@@ -124,14 +125,22 @@
                             id="last_name"
                             name="last_name"
                             required
+                            aria-required="true"
                         />
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required />
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            aria-required="true"
+                        />
                         <label for="message">Votre message</label>
                         <textarea
                             id="message"
                             name="message"
                             required
+                            aria-required="true"
                         ></textarea>
                         <button type="submit" aria-label="send">Envoyer</button>
                     </form>

@@ -46,7 +46,8 @@ const displayPhotographerPage = async () => {
     // TODO : Ajouter les fonctions pour les likes, lightbox, form et filtres
     // Modal & Form handling
     handleModalAndForm()
-    // Add photographer's name to the modal title & aria-label
+    // Add photographer's name to the modal aria-label
+    document.querySelector('.modal__content__form').setAttribute('aria-roledescription', `Contact me ${photographer.name}`)
     document.querySelector('.modal__header-title').textContent =
         `Contactez-moi ${photographer.name}`
     document
