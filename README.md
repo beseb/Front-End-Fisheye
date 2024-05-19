@@ -1,9 +1,14 @@
 # Fisheye
-![HOMEPAGE](./assets/images/logo.png)
+![PHOTOGRAPHER](./assets/images/screenshots/Screenshot%202.webp)
+![HOMEPAGE](./assets/images/screenshots/Screenshot%201.webp)
+
 ## Description
 - 6th project of OpenClassrooms's React / JS Developper Path
 - Made with 💖in HTML / CSS / Vanilla JS only !
-- The goal here was to create a responsive website for photographers to showcase their work, to create a lightbox, use a filter system and to make the website accessible to all users.
+- The goal here was to create a non-responsive website for photographers to showcase their work, including a form to contact them, a lightbox to show in closeup view all medias, a filter section to order medias by title, date and popularity, and a "likes" counter.
+This website is accessible to all users, following the WCAG guidelines.
+- The website is composed of 2 pages : the homepage and the photographer's page.
+- Mockups available here : [Figma](https://www.figma.com/file/1L6zZj1b6J1Qg0J7jY9g5n/FishEye?node-id=0%3A1)
 
 ## Getting Started
 
