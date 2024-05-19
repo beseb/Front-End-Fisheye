@@ -5,18 +5,17 @@ export default class PhotographerMedias {
     }
     createPhotographerMedias() {
         const content_section = document.querySelector('.main__content')
-        // Create the header of the content section
         content_section.innerHTML += `
-           
         <div class="main__content__media">
-        ${this.medias.map((media) => {
-            const mediaContent = media.image
-                ? `<img class="main__content__media__image" src="/assets/images/photographers/Sample Photos/${this.photographer.name}/${media.image}" alt="${media.title}">`
-                : `<video class="main__content__media__video" controls>
+        ${this.medias
+            .map((media, index) => {
+                const mediaContent = media.image
+                    ? `<img class="main__content__media__image" src="/assets/images/photographers/Sample Photos/${this.photographer.name}/${media.image}" alt="${media.title}">`
+                    : `<video class="main__content__media__video" controls>
             <source src="/assets/images/photographers/Sample Photos/${this.photographer.name}/${media.video}" type="video/mp4">
             </video>`
-            return `
-                <article class="main__content__media__item">
+                return `
+                <article class="main__content__media__item" data-id="${media.id}" style="order:${index + 1}">
                 <figure data-media="${media.id}" aria-label="voir en grand" alt="${media.title}">${mediaContent}</figure>  
                 <figcaption class="main__content__media__item__caption">
                 <h2 class="main__content__media__item__caption__title">${media.title}</h2>
@@ -27,7 +26,8 @@ export default class PhotographerMedias {
                </figcaption>
                 </article>
             `
-        })}
+            })
+            .join('')}
         <aside>
         <p class="photographer_Likes">
             <span class="photographer_likes_count"></span>

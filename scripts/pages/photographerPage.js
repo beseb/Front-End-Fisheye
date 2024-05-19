@@ -6,7 +6,7 @@ import MediasFactory from '../factories/MediasFactory.js'
 import { handleModalAndForm } from '../utils/form.js'
 import { handleLightbox } from '../utils/lightbox.js'
 import { handleLikes } from '../utils/likes.js'
-// TODO : Ajouter les imports pour les filtres
+import { handleFilter } from '../utils/filter.js'
 
 // Create an instance of the Api class & get the photographer id from the URL
 const photographersApi = new Api('/data/photographers.json')
@@ -44,10 +44,11 @@ const displayPhotographerPage = async () => {
     )
     photographerContent.createPhotographerMedias()
 
-    // TODO : Ajouter les fonctions pour les likes filtres
     // Modal & Form handling & Add photographer's name to the modal aria-label
     handleModalAndForm()
-    document.querySelector('.modal__content__form').setAttribute('aria-roledescription', `Contact me ${photographer.name}`)
+    document
+        .querySelector('.modal__content__form')
+        .setAttribute('aria-roledescription', `Contact me ${photographer.name}`)
     document.querySelector('.modal__header-title').textContent =
         `Contactez-moi ${photographer.name}`
     document
@@ -57,7 +58,9 @@ const displayPhotographerPage = async () => {
     // Lightbox handling
     handleLightbox(photographerContent)
     // Likes handling
-    handleLikes(photographerContent)       
+    handleLikes(photographerContent)
+    // Filter handling
+    handleFilter(photographerContent)
 }
 // Call the displayPhotographerPage function
 displayPhotographerPage()

@@ -82,7 +82,7 @@ video {
     color: #901c1c;
     margin: 0;
 }
-.main__content__media__item__caption__likes{
+.main__content__media__item__caption__likes {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -97,7 +97,6 @@ video {
     color: #901c1c;
     margin: 0;
     cursor: pointer;
- 
 }
 .contact_button {
     font-size: 20px;
@@ -318,4 +317,32 @@ video {
     right: 10px;
 
     background-image: url('/assets/icons/right-arrow.svg');
+}
+
+.filter_section {
+    position: relative;
+    display: flex;
+    width: 50%;
+}
+.filter_section label {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: black;
+    margin-right: 10px;
+}
+.filter_section select {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #901c1c;
+    background-color: #901c1c;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    gap: 15px;
+}
+.filter_section select .fa-chevron-up {
+    height: 10px;
 }

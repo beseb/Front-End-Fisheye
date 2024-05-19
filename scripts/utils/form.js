@@ -1,3 +1,6 @@
+/*
+ * Handle the form and the modal
+ */
 export function handleModalAndForm() {
     // Get the main content and the modal
     const main = document.querySelector('main')

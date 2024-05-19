@@ -1,5 +1,6 @@
 /**
- * Function to handle the lightbox with the medias from the chosen photographer
+ * Handle the lightbox
+ * @param {Object} photographerContent - Photographer object
  */
 export function handleLightbox(photographerContent) {
     const main = document.querySelector('main')
