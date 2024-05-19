@@ -10,7 +10,7 @@ export default class PhotographerHeader {
             <p class="main__hero__info__location">${this.photographer.city}, ${this.photographer.country}</p>
             <p class="main__hero__info__tagline">${this.photographer.tagline}</p>
             </div>
-            <button class="contact_button" aria-label="Bouton contact">Contactez-moi</button>
+            <button class="contact_button" aria-label="Contact me">Contactez-moi</button>
             <img class="main__hero__image" src="/assets/images/photographers/Sample Photos/Photographers ID Photos/${this.photographer.portrait}" alt="${this.photographer.name}">
         `
       

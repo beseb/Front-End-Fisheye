@@ -16,7 +16,7 @@ export default class PhotographerMedias {
             </video>`
                 return `
                 <article class="main__content__media__item" data-id="${media.id}" style="order:${index + 1}">
-                <figure data-media="${media.id}" aria-label="voir en grand" alt="${media.title}">${mediaContent}</figure>  
+                <figure data-media="${media.id}" aria-label="${media.title} closeup view" alt="${media.title}">${mediaContent}</figure>  
                 <figcaption class="main__content__media__item__caption">
                 <h2 class="main__content__media__item__caption__title">${media.title}</h2>
                 <div class="main__content__media__item__caption__likes">
