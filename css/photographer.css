@@ -30,6 +30,7 @@
     font-size: 3rem;
     font-weight: 400;
     color: #d3573c;
+    margin: 0;
 }
 .main__hero__image {
     height: 200px;
@@ -111,7 +112,7 @@ video {
     background-color: #901c1c;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: -15rem;
+    /* margin-left: -15rem; */
 }
 .contact_button:hover {
     background-color: #db8876;
@@ -272,15 +273,27 @@ form button {
     width: 90%;
     height: 90%;
     padding: 0;
+   
 }
-.lightbox__media__container img,
-video {
+.lightbox__media__container img
+ {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+
+    object-fit: contain;
     object-position: center;
     border-radius: 5px;
     margin: auto;
+}
+.lightbox__media__container video {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    margin: 0 auto;
 }
 .lightbox__media__container figcaption {
     color: #901c1c;
@@ -335,24 +348,23 @@ video {
     margin-right: 10px;
 }
 
-
 .dropdown {
     z-index: 10;
     border-radius: 5px;
     overflow: hidden;
-    position:absolute;
+    position: absolute;
     top: -5px;
     left: 100%;
 }
 
-.rotate{
+.rotate {
     transform: rotate(180deg);
 }
 
 .dropdown_content {
     max-height: 0;
     background-color: #901c1c;
-    transition: max-height .1s ease-in-out;
+    transition: max-height 0.1s ease-in-out;
     padding: 0 !important;
     margin: 0 !important;
     width: 100%;
@@ -368,10 +380,8 @@ video {
     width: 100%;
 }
 
-
-
 .btn_drop,
-.dropdown_content li button{
+.dropdown_content li button {
     height: 50px;
     width: 100%;
     padding: 15px;
@@ -386,7 +396,7 @@ video {
     justify-content: space-between;
     align-items: center;
     width: 150px;
-    background-color: #901C1C;
+    background-color: #901c1c;
 }
 
 .dropdown_content li button {
@@ -397,8 +407,8 @@ video {
 .dropdown_content li button:hover,
 .dropdown_content li button:focus,
 .btn_drop:hover,
-.btn_drop:focus{
-    background-color: #DB8876;
+.btn_drop:focus {
+    background-color: #db8876;
     color: black;
 }
 
