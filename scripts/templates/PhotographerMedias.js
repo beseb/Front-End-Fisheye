@@ -15,7 +15,7 @@ export default class PhotographerMedias {
             <source src="/assets/images/photographers/Sample Photos/${this.photographer.name}/${media.video}" type="video/mp4">
             </video>`
                 return `
-                <article class="main__content__media__item" data-id="${media.id}" style="order:${index + 1}">
+                <article class="main__content__media__item" data-id="${media.id}" data-order='${index}' style="order:${index}">
                 <figure data-media="${media.id}" aria-label="${media.title} closeup view" alt="${media.title}">${mediaContent}</figure>  
                 <figcaption class="main__content__media__item__caption">
                 <h2 class="main__content__media__item__caption__title">${media.title}</h2>

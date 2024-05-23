@@ -6,7 +6,7 @@ import MediasFactory from '../factories/MediasFactory.js'
 import { handleModalAndForm } from '../utils/form.js'
 import { handleLightbox } from '../utils/lightbox.js'
 import { handleLikes } from '../utils/likes.js'
-import { handleFilter } from '../utils/filter.js'
+import { handleFilter, openCloseFilterMenu } from '../utils/filter.js'
 
 // Create an instance of the Api class & get the photographer id from the URL
 const photographersApi = new Api('/data/photographers.json')
@@ -60,6 +60,7 @@ const displayPhotographerPage = async () => {
     // Likes handling
     handleLikes(photographerContent)
     // Filter handling
+    openCloseFilterMenu()
     handleFilter(photographerContent)
 }
 // Call the displayPhotographerPage function

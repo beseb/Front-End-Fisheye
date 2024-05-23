@@ -15,65 +15,70 @@ export function handleLightbox(photographerContent) {
 
     const photographer = photographerContent.photographer
     const mediasList = photographerContent.medias
-    let currentIndex = 0
+
+    // Get the current index of the media
+    let currentIndex = parseInt(
+        lightboxMediaContainer.getAttribute('data-index')
+    )
 
     mediasArray.forEach((media) => {
         media.addEventListener('click', () => {
             const mediaId = media.getAttribute('data-media')
-            const currentMedia = mediasList.findIndex(
+            const currentMediaIndex = mediasList.findIndex(
                 (media) => media.id === parseInt(mediaId)
             )
-            currentIndex = currentMedia
+            currentIndex = currentMediaIndex
             showMedia()
             openLightbox()
         })
     })
+
     const showMedia = () => {
-        const currentMedia = mediasList[currentIndex]
+        const currentMedia = mediasList[parseInt(currentIndex)]
+        lightboxMediaContainer.setAttribute('data-index', currentIndex)
         lightboxMediaContainer.innerHTML = `
-        ${
-            currentMedia.image
-                ? `<img src="/assets/images/photographers/Sample Photos/${photographer.name}/${currentMedia.image}" alt="${currentMedia.title}">`
-                : `<video controls aria-label="${currentMedia.alt}">
-        <source src="/assets/images/photographers/Sample Photos/${photographer.name}/${currentMedia.video}" type="video/mp4">
-        </video>`
-        }
-        <figcaption>${currentMedia.title}</figcaption>
+            ${
+                currentMedia.image
+                    ? `<img src="/assets/images/photographers/Sample Photos/${photographer.name}/${currentMedia.image}" alt="${currentMedia.title}">`
+                    : `<video controls aria-label="${currentMedia.title}">
+                    <source src="/assets/images/photographers/Sample Photos/${photographer.name}/${currentMedia.video}" type="video/mp4">
+                </video>`
+            }
+            <figcaption>${currentMedia.title}</figcaption>
         `
     }
+
     const openLightbox = () => {
         lightbox.classList.remove('hidden')
         lightbox.setAttribute('aria-hidden', 'false')
         lightbox.focus()
-        lightbox.tabIndex = 0
         // Trap the focus inside the lightbox
-        trapTabKey(lightbox)
+        trapTabKey()
         // Hide the main content from screen readers
         main.setAttribute('aria-hidden', 'true')
-        main.tabIndex = -1
     }
 
     const closeLightbox = () => {
         lightbox.classList.add('hidden')
         lightbox.setAttribute('aria-hidden', 'true')
-        lightbox.tabIndex = -1
         // Show the main content to screen readers
         main.setAttribute('aria-hidden', 'false')
-        main.tabIndex = 0
     }
+
     const previousMedia = () => {
         currentIndex--
         if (currentIndex < 0) {
             currentIndex = mediasList.length - 1
         }
-        showMedia(currentIndex)
+        showMedia()
     }
+
     const nextMedia = () => {
         currentIndex++
         if (currentIndex >= mediasList.length) {
             currentIndex = 0
         }
-        showMedia(currentIndex)
+        showMedia()
     }
 
     // Handle keydown event on keys
@@ -83,21 +88,25 @@ export function handleLightbox(photographerContent) {
                 closeLightbox()
                 break
             case 'ArrowRight':
-                previousMedia()
+                nextMedia()
                 break
             case 'ArrowLeft':
-                nextMedia()
+                previousMedia()
                 break
         }
     })
+
     // Handle click outside the lightbox
     window.addEventListener('click', (e) => {
-        e.target === lightbox ? closeLightbox() : false
+        if (e.target === lightbox) {
+            closeLightbox()
+        }
     })
+
     // Trap the focus inside the lightbox
     const trapTabKey = () => {
         const focusableElements = lightbox.querySelectorAll(
-            ' button:not([disabled]),  input'
+            'button:not([disabled]), input'
         )
         const firstFocusableElement = focusableElements[0]
         const lastFocusableElement =
@@ -106,13 +115,13 @@ export function handleLightbox(photographerContent) {
         const handleTabPress = (e) => {
             if (e.key === 'Tab') {
                 if (e.shiftKey) {
-                    /* Shift + Tab */ if (
-                        document.activeElement === firstFocusableElement
-                    ) {
+                    /* Shift + Tab */
+                    if (document.activeElement === firstFocusableElement) {
                         e.preventDefault()
                         lastFocusableElement.focus()
                     }
-                } /* Tab */ else {
+                } else {
+                    /* Tab */
                     if (document.activeElement === lastFocusableElement) {
                         e.preventDefault()
                         firstFocusableElement.focus()
@@ -120,10 +129,11 @@ export function handleLightbox(photographerContent) {
                 }
             }
         }
+
         // Add the keydown event listener
         lightbox.addEventListener('keydown', handleTabPress)
 
-        // Remove the keydown event listener
+        // Remove the keydown event listener when the lightbox is closed
         if (lightbox.getAttribute('aria-hidden') === 'true') {
             lightbox.removeEventListener('keydown', handleTabPress)
         }

@@ -63,6 +63,8 @@
 video {
     width: 350px;
     height: 300px;
+    max-width: 350px;
+    max-height: 350px;
     border-radius: 5px;
     object-fit: cover;
     object-position: center;
@@ -322,7 +324,9 @@ video {
 .filter_section {
     position: relative;
     display: flex;
-    width: 50%;
+    justify-content: space-evenly;
+    align-items: center;
+    width: fit-content;
 }
 .filter_section label {
     font-size: 1.5rem;
@@ -330,19 +334,74 @@ video {
     color: black;
     margin-right: 10px;
 }
-.filter_section select {
-    width: 150px;
-    height: 40px;
-    border: 1px solid #901c1c;
-    background-color: #901c1c;
+
+
+.dropdown {
+    z-index: 10;
     border-radius: 5px;
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: white;
-    padding: 5px;
-    cursor: pointer;
-    gap: 15px;
+    overflow: hidden;
+    position:absolute;
+    top: -5px;
+    left: 100%;
 }
-.filter_section select .fa-chevron-up {
-    height: 10px;
+
+.rotate{
+    transform: rotate(180deg);
+}
+
+.dropdown_content {
+    max-height: 0;
+    background-color: #901c1c;
+    transition: max-height .1s ease-in-out;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+.dropdown_content li {
+    position: relative;
+    width: 150px;
+    list-style: none;
+    width: 100%;
+}
+
+
+
+.btn_drop,
+.dropdown_content li button{
+    height: 50px;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #901c1c;
+    border: none;
+}
+
+.btn_drop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    background-color: #901C1C;
+}
+
+.dropdown_content li button {
+    width: 100%;
+    text-align: left;
+}
+
+.dropdown_content li button:hover,
+.dropdown_content li button:focus,
+.btn_drop:hover,
+.btn_drop:focus{
+    background-color: #DB8876;
+    color: black;
+}
+
+.curtain_effect {
+    max-height: 200px;
 }
