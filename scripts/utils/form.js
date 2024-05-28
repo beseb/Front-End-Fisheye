@@ -92,7 +92,8 @@ export function handleModalAndForm() {
     // Handle form submission, no validate for now
     form.addEventListener('submit', (e) => {
         e.preventDefault()
-        alert(
+        // eslint-disable-next-line no-console
+        console.log(
             'Les infos du formulaire de contact ont été envoyées !' +
                 '\n' +
                 'Prénom : ' +
