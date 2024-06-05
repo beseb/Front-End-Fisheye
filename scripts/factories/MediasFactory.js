@@ -19,7 +19,7 @@ export default class MediasFactory {
         if (media instanceof Image) {
             return `<img class="main__content__media__image" src="/assets/images/photographers/Sample Photos/${photographerName}/${media.image}" alt="${media.title}">`
         }
-        if (this.createMedia(data) instanceof Video) {
+        if (media instanceof Video) {
             return `<video class="main__content__media__video" controls>
             <source src="/assets/images/photographers/Sample Photos/${photographerName}/${media.video}" type="video/mp4">
             </video>`
