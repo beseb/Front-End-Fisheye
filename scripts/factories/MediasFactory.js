@@ -13,8 +13,8 @@ export default class MediasFactory {
             return new Video(data)
         }
     }
-    // Create the media card depending on the media type (image or video) and return it with the photographer name as src attribute to find the media in the right folder
-    createMediaCard(data, photographerName) {
+    // Create the media item depending on the media type (image or video) and return it with the photographer name as src attribute to find the media in the right folder
+    createMediaItem(data, photographerName) {
         const media = this.createMedia(data)
         if (media instanceof Image) {
             return `<img class="main__content__media__image" src="/assets/images/photographers/Sample Photos/${photographerName}/${media.image}" alt="${media.title}">`

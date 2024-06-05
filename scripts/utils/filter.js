@@ -1,46 +1,37 @@
 import { handleLightbox } from '../utils/lightbox.js'
 
-/*
- * handle filter to filter the medias by category
- * @param {Array} data
- */
 export function handleFilter(data) {
     const photographer = data.photographer
-    // Add Listeners to the filter buttons
     const filterSection = document.querySelector('.filter_section')
-    const filter = Array.from(filterSection.querySelectorAll('button'))
-    filter.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            // Change the aria-selected attribute to true or false
-            filter.forEach((btn) => btn.setAttribute('aria-selected', 'false'))
-            button.setAttribute('aria-selected', 'true')
+    const filterMenuButton = filterSection.querySelector('.btn_drop')
+    const filterMenu = filterSection.querySelector('.dropdown_content')
+    const filterButtons = Array.from(filterMenu.querySelectorAll('button'))
 
-            // Sort the medias by title, likes or date
-            const selectedOption = e.target.value
-            const sortedMedias = sortMedias(data, selectedOption)
+    // Sort medias by popularity by default
+    const popularitySortedMedias = sortMedias(data.medias, 'likes')
+    reorderMedias(popularitySortedMedias)
 
-            // Reorder all the medias from the DOM
-            const mediasItems = document.querySelectorAll(
-                '.main__content__media__item'
-            )
-            sortedMedias.forEach((sortedMedia, index) => {
-                const mediaElement = Array.from(mediasItems).find(
-                    (media) => parseInt(media.dataset.id) === sortedMedia.id
-                )
-                if (mediaElement) {
-                    mediaElement.style.order = index
-                    mediaElement.setAttribute('data-order', index)
-                }
-            })
-
-            // Call handleLightbox to update the medias order in the lightbox
-            handleLightbox({ photographer, medias: sortedMedias })
-        })
+    // Add event listeners
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', (e) =>
+            handleFilterClick(e, data, photographer)
+        )
     })
+
+    filterMenuButton.addEventListener('click', toggleFilterMenu)
 }
-// Sort the medias by title, likes or date
-function sortMedias(data, selectedOption) {
-    return Array.from(data.medias).sort((a, b) => {
+
+function handleFilterClick(e, data, photographer) {
+    const newSelectedOption = e.target.value
+    updateDropdownTitle(newSelectedOption)
+    const sortedMedias = sortMedias(data.medias, newSelectedOption)
+    reorderMedias(sortedMedias)
+    handleLightbox({ photographer, medias: sortedMedias })
+    closeFilterMenu()
+}
+
+function sortMedias(medias, selectedOption) {
+    return [...medias].sort((a, b) => {
         switch (selectedOption) {
             case 'title':
                 return a.title.localeCompare(b.title)
@@ -53,31 +44,71 @@ function sortMedias(data, selectedOption) {
         }
     })
 }
-// Handle the filter menu
-export const openCloseFilterMenu = () => {
-    const filterMenu = document.querySelector('.dropdown_content')
+
+function reorderMedias(sortedMedias) {
+    const mediasItems = document.querySelectorAll('.main__content__media__item')
+    sortedMedias.forEach((sortedMedia, index) => {
+        const mediaElement = Array.from(mediasItems).find(
+            (media) => parseInt(media.dataset.id) === sortedMedia.id
+        )
+        if (mediaElement) {
+            mediaElement.style.order = index
+            mediaElement.setAttribute('data-order', index)
+        }
+    })
+}
+
+function updateDropdownTitle(option) {
+    const filterButtonTitle = document.querySelector('.btn_drop_title')
+    filterButtonTitle.textContent = getOptionTitle(option)
+}
+
+function getOptionTitle(option) {
+    switch (option) {
+        case 'title':
+            return 'Titre'
+        case 'likes':
+            return 'Popularité'
+        case 'date':
+            return 'Date'
+        default:
+            return ''
+    }
+}
+
+function toggleFilterMenu() {
     const filterMenuButton = document.querySelector('.btn_drop')
+    const filterMenu = document.querySelector('.dropdown_content')
     const filterButtons = document.querySelectorAll('.dropdown_content button')
 
-    filterMenuButton.addEventListener('click', () => {
-        const isExpanded =
-            filterMenuButton.getAttribute('aria-expanded') === 'true' || false
-        filterMenuButton.setAttribute('aria-expanded', !isExpanded)
-        filterMenu.classList.toggle('curtain_effect')
-        document.querySelector('.fa-chevron-up').classList.toggle('rotate')
+    const isExpanded =
+        filterMenuButton.getAttribute('aria-expanded') === 'true' || false
+    filterMenuButton.setAttribute('aria-expanded', !isExpanded)
+    filterMenu.classList.toggle('curtain_effect')
+    document.querySelector('.fa-chevron-up').classList.toggle('rotate')
 
-        const newAriaHiddenValue = filterMenu.classList.contains(
-            'curtain_effect'
-        )
-            ? 'false'
-            : 'true'
-        filterMenu.setAttribute('aria-hidden', newAriaHiddenValue)
+    const newAriaHiddenValue = filterMenu.classList.contains('curtain_effect')
+        ? 'false'
+        : 'true'
+    filterMenu.setAttribute('aria-hidden', newAriaHiddenValue)
 
-        const newTabIndexValue = filterMenu.classList.contains('curtain_effect')
-            ? '0'
-            : '-1'
-        filterButtons.forEach((button) =>
-            button.setAttribute('tabindex', newTabIndexValue)
-        )
-    })
+    const newTabIndexValue = filterMenu.classList.contains('curtain_effect')
+        ? '0'
+        : '-1'
+    filterButtons.forEach((button) =>
+        button.setAttribute('tabindex', newTabIndexValue)
+    )
+}
+
+function closeFilterMenu() {
+    const filterMenuButton = document.querySelector('.btn_drop')
+    const filterMenu = document.querySelector('.dropdown_content')
+    const filterButtons = document.querySelectorAll('.dropdown_content button')
+
+    filterMenuButton.setAttribute('aria-expanded', 'false')
+    filterMenu.classList.remove('curtain_effect')
+    document.querySelector('.fa-chevron-up').classList.remove('rotate')
+
+    filterMenu.setAttribute('aria-hidden', 'true')
+    filterButtons.forEach((button) => button.setAttribute('tabindex', '-1'))
 }

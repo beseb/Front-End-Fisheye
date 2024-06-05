@@ -37,9 +37,7 @@
             <section class="main__content">
                 <div class="main__content__header">
                     <div class="filter_section">
-                        <label for="order_by_dropdown" aria-label="Trier par"
-                            >Trier par</label
-                        >
+                        <label for="order_by_dropdown" aria-label="Trier par">Trier par</label>
                         <div class="dropdown">
                             <button
                                 class="btn_drop"
@@ -48,41 +46,32 @@
                                 aria-haspopup="listbox"
                                 aria-expanded="false"
                                 aria-controls="filter options"
-                                aria-label="Sort by"
-                                value="likes"
                                 tabindex="-1"
-                                aria-label="Sort by popularity"
                             >
-                                Popularité
-                                <span
-                                    class="fa-solid fa-chevron-up"
-                                    aria-hidden="true"
-                                ></span>
+                                <span class="btn_drop_title">Popularité</span>
+                                <span class="fa-solid fa-chevron-up" aria-hidden="true"></span>
                             </button>
-
+                    
                             <ul class="dropdown_content" aria-hidden="true">
                                 <li role="option">
-                                    <button
-                                        type="button"
-                                        value="date"
-                                        tabindex="-1"
-                                        aria-label="Sort by date"
-                                    >
+                                    <button type="button" value="likes" tabindex="-1" aria-label="Sort by popularity">
+                                        Popularité
+                                    </button>
+                                </li>
+                                <li role="option">
+                                    <button type="button" value="date" tabindex="-1" aria-label="Sort by date">
                                         Date
                                     </button>
                                 </li>
                                 <li role="option">
-                                    <button
-                                        type="button"
-                                        value="title"
-                                        tabindex="-1"
-                                        aria-label="Sort by title"
-                                    >
+                                    <button type="button" value="title" tabindex="-1" aria-label="Sort by title">
                                         Titre
                                     </button>
                                 </li>
                             </ul>
                         </div>
+                    </div>
+                    
                     </div>
                 </div>
             </section>

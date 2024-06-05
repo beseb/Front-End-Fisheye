@@ -8,10 +8,9 @@ export default class PhotographerMedias {
 
     createPhotographerMedias() {
         const content_section = document.querySelector('.main__content')
-
         const mediaItems = this.medias
             .map((media, index) => {
-                const mediaContent = new MediasFactory(media).createMediaCard(
+                const mediaContent = new MediasFactory(media).createMediaItem(
                     media,
                     this.photographer.name
                 )
