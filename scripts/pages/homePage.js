@@ -1,6 +1,6 @@
 import Api from '../api/Api.js'
 import Photographer from '../models/Photographer.js'
-import PhotographerCard from '../templates/HomePage.js'
+import PhotographerCard from '../templates/PhotographerCard.js'
 
 // Create an instance of the Api class
 const photographersApi = new Api('/data/photographers.json')
