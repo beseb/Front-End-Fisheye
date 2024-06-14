@@ -1,158 +1,167 @@
 <!doctype html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title class="photographer-page-title">Fisheye - Photographe</title>
-        <meta
-            name="description"
-            content="Fisheye est un site de photographes indépendants. Venez découvrir leur travail et contactez-les pour vos projets !"
-        />
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" href="assets/favicon.png" />
-        <!-- CSS -->
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
-        <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
-            rel="stylesheet"
-        />
-        <!-- CDN Font Awesome -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
-    </head>
-    <body>
-        <header>
-            <a href="/index.html" role="link" aria-label="Fisheye Home page">
-                <img
-                    src="assets/images/logo.png"
-                    class="logo"
-                    alt="fisheye logo"
-            /></a>
-        </header>
-        <main id="main-photographer">
-            <section class="main__hero"></section>
-            <section class="main__content">
-                <div class="main__content__header">
-                    <div class="filter_section">
-                        <label for="order_by_dropdown" aria-label="Trier par">Trier par</label>
-                        <div class="dropdown">
-                            <button
-                                class="btn_drop"
-                                type="button"
-                                role="button"
-                                aria-haspopup="listbox"
-                                aria-expanded="false"
-                                aria-controls="filter options"
-                                tabindex="-1"
-                            >
-                                <span class="btn_drop_title">Popularité</span>
-                                <span class="fa-solid fa-chevron-up" aria-hidden="true"></span>
-                            </button>
-                    
-                            <ul class="dropdown_content" aria-hidden="true">
-                                <li role="option">
-                                    <button type="button" value="likes" tabindex="-1" aria-label="Sort by popularity">
-                                        Popularité
-                                    </button>
-                                </li>
-                                <li role="option">
-                                    <button type="button" value="date" tabindex="-1" aria-label="Sort by date">
-                                        Date
-                                    </button>
-                                </li>
-                                <li role="option">
-                                    <button type="button" value="title" tabindex="-1" aria-label="Sort by title">
-                                        Titre
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-            </section>
-        </main>
-        <!-- Modal -->
-        <div id="contact_modal" class="modal hidden" aria-hidden="true">
-            <div class="modal__content" role="dialog" aria-modal="true">
-                <div class="modal__content__header">
-                    <h2 class="modal__header-title"></h2>
-                    <button
-                        class="modal__close-button"
-                        aria-label="Close Contact form"
-                    ></button>
-                </div>
-                <div class="modal__content__form">
-                    <!-- No form validation for now as it's a student project -->
-                    <form novalidate role="form">
-                        <label for="first_name">Prénom</label>
-                        <input
-                            type="text"
-                            id="first_name"
-                            name="first_name"
-                            required
-                            aria-required="true"
-                        />
-                        <label for="last_name">Nom</label>
-                        <input
-                            type="text"
-                            id="last_name"
-                            name="last_name"
-                            required
-                            aria-required="true"
-                        />
-                        <label for="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            aria-required="true"
-                        />
-                        <label for="message">Votre message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            required
-                            aria-required="true"
-                        ></textarea>
-                        <button type="submit" aria-label="send">Envoyer</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- Lightbox -->
-        <div class="lightbox hidden" id="lightbox" aria-hidden="true">
-            <div
-                class="lightbox__content"
-                role="dialog"
-                aria-modal="true"
-                aria-label="image closeup view"
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title class="photographer-page-title">Fisheye - Photographe</title>
+    <meta
+      name="description"
+      content="Fisheye est un site de photographes indépendants. Venez découvrir leur travail et contactez-les pour vos projets !"
+    />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <!-- CSS -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CDN Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="/index.html" role="link" aria-label="Fisheye Home page">
+        <img src="assets/images/logo.png" class="logo" alt="fisheye logo"
+      /></a>
+    </header>
+    <main id="main-photographer">
+      <section class="main__hero"></section>
+      <section class="main__content">
+        <div class="main__content__header">
+          <div class="filter_section">
+            <label for="order_by_dropdown" aria-label="Trier par"
+              >Trier par</label
             >
-                <button
-                    class="lightbox__close-button"
-                    aria-label="Close dialog"
-                ></button>
-                <button
-                    class="lightbox__prev-button"
-                    aria-label="Previous image"
-                ></button>
-                <button
-                    class="lightbox__next-button"
-                    aria-label="Next image"
-                ></button>
-                <div class="lightbox__media__container"></div>
+            <div class="dropdown">
+              <button
+                class="btn_drop"
+                type="button"
+                role="button"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-controls="filter options"
+                tabindex="-1"
+              >
+                <span class="btn_drop_title">Popularité</span>
+                <span class="fa-solid fa-chevron-up" aria-hidden="true"></span>
+              </button>
+
+              <ul class="dropdown_content" aria-hidden="true">
+                <li role="option">
+                  <button
+                    type="button"
+                    value="likes"
+                    tabindex="-1"
+                    aria-label="Sort by popularity"
+                  >
+                    Popularité
+                  </button>
+                </li>
+                <li role="option">
+                  <button
+                    type="button"
+                    value="date"
+                    tabindex="-1"
+                    aria-label="Sort by date"
+                  >
+                    Date
+                  </button>
+                </li>
+                <li role="option">
+                  <button
+                    type="button"
+                    value="title"
+                    tabindex="-1"
+                    aria-label="Sort by title"
+                  >
+                    Titre
+                  </button>
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
-        <!-- Script -->
-        <script
-            src="./scripts/pages/photographerPage.js"
-            type="module"
-            defer
-        ></script>
-    </body>
+      </section>
+    </main>
+    <!-- Modal -->
+    <div id="contact_modal" class="modal hidden" aria-hidden="true">
+      <div class="modal__content" role="dialog" aria-modal="true">
+        <div class="modal__content__header">
+          <h2 class="modal__header-title"></h2>
+          <button
+            class="modal__close-button"
+            aria-label="Close Contact form"
+          ></button>
+        </div>
+        <div class="modal__content__form">
+          <!-- No form validation for now as it's a student project -->
+          <form novalidate role="form">
+            <label for="first_name">Prénom</label>
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              required
+              aria-required="true"
+            />
+            <label for="last_name">Nom</label>
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              required
+              aria-required="true"
+            />
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              aria-required="true"
+            />
+            <label for="message">Votre message</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              aria-required="true"
+            ></textarea>
+            <button type="submit" aria-label="send">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Lightbox -->
+    <div class="lightbox hidden" id="lightbox" aria-hidden="true">
+      <div
+        class="lightbox__content"
+        role="dialog"
+        aria-modal="true"
+        aria-label="image closeup view"
+      >
+        <button
+          class="lightbox__close-button"
+          aria-label="Close dialog"
+        ></button>
+        <button
+          class="lightbox__prev-button"
+          aria-label="Previous image"
+        ></button>
+        <button class="lightbox__next-button" aria-label="Next image"></button>
+        <div class="lightbox__media__container"></div>
+      </div>
+    </div>
+    <!-- Script -->
+    <script
+      src="./scripts/pages/photographerPage.js"
+      type="module"
+      defer
+    ></script>
+  </body>
 </html>

@@ -1,73 +1,73 @@
 @import url('photographer.css');
 
 body {
-    font-family: 'DM Sans', sans-serif;
-    margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  margin: 0;
 }
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
 }
 
 h1 {
-    color: #901c1c;
-    margin-right: 100px;
+  color: #901c1c;
+  margin-right: 100px;
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
+  height: 50px;
+  margin-left: 100px;
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .photographer-card,
 .photographer-card__link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  gap: 10px;
 }
 .photographer-card__link {
-    margin-bottom: -2em;
+  margin-bottom: -2em;
 }
 .photographer-card__name {
-    color: #d3573c;
-    font-size: 2rem;
-    font-weight: 400;
+  color: #d3573c;
+  font-size: 2rem;
+  font-weight: 400;
 }
 .photographer-card__img {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
 }
 
 .photographer-card__location {
-    color: #901c1c;
-    font-size: 1.2rem;
-    margin: 0;
+  color: #901c1c;
+  font-size: 1.2rem;
+  margin: 0;
 }
 .photographer-card__tagline {
-    color: #000000;
-    font-size: 1rem;
-    margin: 0;
+  color: #000000;
+  font-size: 1rem;
+  margin: 0;
 }
 .photographer-card__price {
-    color: #757575;
-    font-size: 1rem;
-    margin: 0;
+  color: #757575;
+  font-size: 1rem;
+  margin: 0;
 }

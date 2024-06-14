@@ -1,20 +1,20 @@
-import MediasFactory from '../factories/MediasFactory.js'
+import MediasFactory from '../factories/MediasFactory.js';
 
 export default class PhotographerMedias {
-    constructor(photographer, medias) {
-        this.photographer = photographer
-        this.medias = medias
-    }
+  constructor(photographer, medias) {
+    this.photographer = photographer;
+    this.medias = medias;
+  }
 
-    createPhotographerMedias() {
-        const content_section = document.querySelector('.main__content')
-        const mediaItems = this.medias
-            .map((media, index) => {
-                const mediaContent = new MediasFactory(media).createMediaItem(
-                    media,
-                    this.photographer.name
-                )
-                return `
+  createPhotographerMedias() {
+    const content_section = document.querySelector('.main__content');
+    const mediaItems = this.medias
+      .map((media, index) => {
+        const mediaContent = new MediasFactory(media).createMediaItem(
+          media,
+          this.photographer.name,
+        );
+        return `
                 <article class="main__content__media__item" data-id="${media.id}" data-order="${index}" style="order:${index}">
                     <figure data-media="${media.id}" aria-label="${media.title} closeup view">
                         ${mediaContent}
@@ -27,11 +27,11 @@ export default class PhotographerMedias {
                         </div>
                     </figcaption>
                 </article>
-            `
-            })
-            .join('')
+            `;
+      })
+      .join('');
 
-        content_section.innerHTML += `
+    content_section.innerHTML += `
             <div class="main__content__media">
                 ${mediaItems}
                 <aside>
@@ -42,6 +42,6 @@ export default class PhotographerMedias {
                     <span>${this.photographer.price}€ / jour</span>
                 </aside>
             </div>
-        `
-    }
+        `;
+  }
 }
